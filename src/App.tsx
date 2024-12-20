@@ -1,8 +1,14 @@
 import styled from 'styled-components'
+import { StyledBtn, SuperButton } from './components/Button.styled'
+import { Link } from './components/Link.styled'
+import { Menu } from './components/Menu.styled'
+import { GlobalStyles } from './styles/GlobalStyles'
 
 function App() {
   return (
     <div>
+      <GlobalStyles />
+
       <Menu>
         <ul>
           <li>
@@ -17,9 +23,12 @@ function App() {
         </ul>
       </Menu>
       <Box>
-        <StyledBtn as={'a'} href={'#'}>
-          Link
+        <StyledBtn>Link</StyledBtn>
+        <StyledBtn primary as={'a'} href={'#'}>
+          Link primary
         </StyledBtn>
+        <StyledBtn outlined>Link outlined</StyledBtn>
+        <StyledBtn color="purple">Button</StyledBtn>
         <SuperButton as={Link} href="#">
           superButtonAsLink
         </SuperButton>
@@ -31,31 +40,6 @@ function App() {
 }
 
 export default App
-
-const StyledBtn = styled.button`
-  border: 0;
-  background-color: red;
-  padding: 18px 20px;
-  color: black;
-  &:hover {
-    background-color: green;
-  }
-  &:last-child {
-    background-color: purple;
-  }
-`
-const Link = styled.a`
-  border: 0;
-  background-color: transparent;
-  padding: 18px 20px;
-  color: black;
-  font-weight: bold;
-`
-const SuperButton = styled(StyledBtn)`
-  border-radius: 20px;
-  background-color: yellow;
-  color: black;
-`
 
 const Box = styled.div`
   display: flex;
@@ -69,20 +53,8 @@ const Box = styled.div`
   ${Link} {
     cursor: zoom-in;
   }
-`
-
-const Menu = styled.nav`
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-
-    li > a {
-      color: seagreen;
-    }
-    li + li {
-      /// братский селектор. если ли1 идет перед ли2 то ко второму применятся стили
-      margin-left: 20px;
-    }
+  @media screen and (max-width: 860px) {
+    flex-direction: column;
   }
+  ///МАКС-больше 860 значит. если меньше 860 применяются стили. Обратная зависимость макс=>при меньше значения в скобках
 `

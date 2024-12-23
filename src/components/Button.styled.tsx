@@ -13,12 +13,15 @@ export const StyledBtn = styled.button<PropsStyledBTN>`
   background-color: ${(props) => (props.color ? props.color : 'blue')};
   padding: 18px 20px;
   color: black;
-  font-size: ${(props) => props.fontSize};
+  font-size: ${(props) => props.fontSize || '1rem'};
   &:hover {
     background-color: green;
   }
   &:last-child {
     background-color: purple;
+  }
+  &:active {
+    box-shadow: 0px 15px 15px 5px black;
   }
   ${(props) =>
     props.primary &&
@@ -29,8 +32,13 @@ export const StyledBtn = styled.button<PropsStyledBTN>`
   ${(props) =>
     props.outlined &&
     css<PropsStyledBTN>`
-      background-color: ${(props) => (props.color ? props.color : 'blue')};
+      background-color: ${(props) => (props.color ? props.color : 'white')};
       border: 2px solid black;
+
+      &:hover {
+        background-color: transparent;
+        color: crimson;
+      }
     `}
 `
 

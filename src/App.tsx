@@ -24,6 +24,8 @@ function App() {
           </li>
         </ul>
       </Menu>
+      <Box></Box>
+
       <Box>
         <StyledBtn>Link</StyledBtn>
         <StyledBtn primary as={'a'} href={'#'}>
@@ -48,10 +50,9 @@ function App() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            {' '}
-            <use xlinkHref={someSVG + '#1'}></use>{' '}
-          </svg>{' '}
-        </button>{' '}
+            <use xlinkHref={`${someSVG}+'#1'`}></use>
+          </svg>
+        </button>
       </div>
     </div>
   )
@@ -74,9 +75,10 @@ const Box = styled.div`
   @media ${myTheme.media.tablet} {
     flex-direction: column;
   }
-  ///МАКС-больше 860 значит. если меньше 860 применяются стили. Обратная зависимость макс=>при меньше значения в скобках
-  ///tinyPNG
-
-  ///виды растровых: jpg, png, gif, webp
-  ///векторных svg
 `
+///МАКС-больше 860 значит. если меньше 860 применяются стили. Обратная зависимость макс=>при меньше значения в скобках
+///tinyPNG
+
+///виды растровых: jpg, png, gif, webp
+///векторных svg
+///для фавикона можно несколько штук для поддержки браузеров

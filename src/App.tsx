@@ -3,7 +3,9 @@ import { StyledBtn, SuperButton } from './components/Button.styled'
 import { Link } from './components/Link.styled'
 import { Menu } from './components/Menu.styled'
 import { GlobalStyles } from './styles/GlobalStyles'
-
+import { myTheme } from './styles/Theme.styled'
+import someSVG from './assets/some.svg'
+import './App.css'
 function App() {
   return (
     <div>
@@ -27,14 +29,30 @@ function App() {
         <StyledBtn primary as={'a'} href={'#'}>
           Link primary
         </StyledBtn>
-        <StyledBtn outlined>Link outlined</StyledBtn>
-        <StyledBtn color="purple">Button</StyledBtn>
+        <StyledBtn color={myTheme.colors.secondary}>Link outlined</StyledBtn>
+        <StyledBtn color={myTheme.colors.primary}>Button</StyledBtn>
         <SuperButton as={Link} href="#">
           superButtonAsLink
         </SuperButton>
         <StyledBtn>button</StyledBtn>
         <SuperButton>SuperButton</SuperButton>
       </Box>
+      <div className="buttonDiv">
+        {' '}
+        <button className="button">
+          {' '}
+          <svg
+            width="25"
+            height="25"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {' '}
+            <use xlinkHref={someSVG + '#1'}></use>{' '}
+          </svg>{' '}
+        </button>{' '}
+      </div>
     </div>
   )
 }
@@ -53,8 +71,12 @@ const Box = styled.div`
   ${Link} {
     cursor: zoom-in;
   }
-  @media screen and (max-width: 860px) {
+  @media ${myTheme.media.tablet} {
     flex-direction: column;
   }
   ///МАКС-больше 860 значит. если меньше 860 применяются стили. Обратная зависимость макс=>при меньше значения в скобках
+  ///tinyPNG
+
+  ///виды растровых: jpg, png, gif, webp
+  ///векторных svg
 `

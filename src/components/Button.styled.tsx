@@ -26,7 +26,7 @@ export const StyledBtn = styled.button<PropsStyledBTN>`
   ${(props) =>
     props.primary &&
     css<PropsStyledBTN>`
-      background-color: background-color: ${(props) => (props.color ? props.color : 'blue')};;
+      background-color: ${(props) => (props.color ? props.color : 'blue')};
       border: 2px solid red;
     `}
   ${(props) =>

@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.button {
+  background-color: chocolate;
+  width: 100px;
+  height: 100px;
+}
+.button svg {
+  fill: currentColor;
+  stroke: green;
+}
+.button svg:hover {
+  fill: pink;
+  stroke: purple;
+}
